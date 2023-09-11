@@ -154,6 +154,8 @@ void requestEverything() {
     }
 }
 
+void rebootCamera()
+
 /*System Commands*/
 void handleCommands(char* topic, byte* payload, unsigned int length){
     /*DynamicJsonBuffer response(1024);
