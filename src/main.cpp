@@ -307,7 +307,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     if (strcmp(topic, buildTopic("command/camera/raw").c_str()) == 0) {
 
         Serial.write(payload, length);
-        client.publish(buildTopic("status").c_str(),
+        client.publish(buildTopic("return/camera/status").c_str(),
                        ("Kotze Daten " + String(length)).c_str());
     }
 
@@ -404,7 +404,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
 
         Serial.write(command.payload, command.len);
 
-        client.publish(buildTopic("camera/command/rawdata").c_str(), command.payload, command.len);
+        client.publish(buildTopic("command/camera/rawdata").c_str(), command.payload, command.len);
 
     }
     if (strcmp(topic, buildTopic("command/system/resetConfig").c_str()) == 0) {
